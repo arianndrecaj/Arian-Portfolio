@@ -40,7 +40,7 @@ function Contact() {
 
 return (
   <div className="container">
-    <h2>Contact Us</h2>
+    <h2>Contact Arian</h2>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="name">Name</label>

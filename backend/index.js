@@ -1,10 +1,12 @@
 // Backend/index.js
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+const contactRoutes = require('./routes/contactRoutes');
+
 const app = express();
 const PORT = process.env.PORT || 5003;
-const cors = require('cors');
-const ContactMessage = require('./models/ContactMessage');
 
 require('dotenv').config();
 
@@ -13,64 +15,20 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}) 
-.then(() => {
-  console.log('Connected to MongoDB');
 })
-.catch((error) => {
-  console.log('MongoDB connection error:',error);
-});
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.log('MongoDB connection error:', error));
 
 app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
 
-app.get('/contact-messages', async (req, res) => {
-  try {
-    const messages = await ContactMessage.find(); // Retrieves all documents in the ContactMessage collection
-    res.status(200).json(messages);
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to retrieve messages' });
-  }
-});
-
-app.get('/contact-messages/:id', async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const message = await ContactMessage.findById(id);
-    if (!message) {
-      return res.status(404).json({ message: 'Message not found' });
-    }
-    res.status(200).json(message); // Send the message back
-  } catch (error) {
-    console.log("Error retrieving message:", error);
-    res.status(500).json({ message: 'Failed to retrieve message' });
-  }
-});
-
-
-
-app.post('/contact', async (req, res) => {
-  const { name, email, message } = req.body;
-
-  try{
-    const newMessage = new ContactMessage({
-      name,
-      email,
-      message,
-    });
-
-    await newMessage.save();
-    res.status(200).json({ message: 'Message saved successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to save message'});
-  }
-});
-
+// Contact Route
+app.use('/contact', contactRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
