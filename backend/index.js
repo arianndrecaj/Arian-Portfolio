@@ -37,19 +37,22 @@ app.get('/contact-messages', async (req, res) => {
   }
 });
 
-app.get('/contact-messages/:id',async (req, res) => {
+app.get('/contact-messages/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
     const message = await ContactMessage.findById(id);
-    if(!message) {
-      return res.status(400).json({ message: 'Message not found' });
+    if (!message) {
+      return res.status(404).json({ message: 'Message not found' });
     }
-    res.status(200).json(message);
+    res.status(200).json(message); // Send the message back
   } catch (error) {
-    res.status(500).json({ message: 'Failed to retrive message'});
+    console.log("Error retrieving message:", error);
+    res.status(500).json({ message: 'Failed to retrieve message' });
   }
 });
+
+
 
 app.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
