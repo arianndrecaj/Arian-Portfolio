@@ -1,10 +1,13 @@
 // Backend/index.js
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+
+const contactRoutes = require('./routes/contactRoutes');
+
 const app = express();
 const PORT = process.env.PORT || 5003;
-const cors = require('cors');
-const ContactMessage = require('./models/ContactMessage');
 
 require('dotenv').config();
 
@@ -23,55 +26,40 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch((error) => {
   console.log('MongoDB connection error:',error);
 });
-
 app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
 
-app.get('/contact-messages', async (req, res) => {
-  try {
-    const messages = await ContactMessage.find(); // Retrieves all documents in the ContactMessage collection
-    res.status(200).json(messages);
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to retrieve messages' });
-  }
-});
-
-app.get('/contact-messages/:id', async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const message = await ContactMessage.findById(id);
-    if (!message) {
-      return res.status(404).json({ message: 'Message not found' });
-    }
-    res.status(200).json(message); // Send the message back
-  } catch (error) {
-    console.log("Error retrieving message:", error);
-    res.status(500).json({ message: 'Failed to retrieve message' });
-  }
-});
-
-
-
-app.post('/contact', async (req, res) => {
-  const { name, email, message } = req.body;
-
-  try{
-    const newMessage = new ContactMessage({
-      name,
-      email,
-      message,
-    });
-
-    await newMessage.save();
-    res.status(200).json({ message: 'Message saved successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to save message'});
-  }
-});
+app.use(contactRoutes);
 
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.mailgun.org',
+  port: 587,
+  auth : {
+    user:'postmaster@sandbox7dfbaaabbf7744c3ba77546be5250027.mailgun.org',
+    pass: '2a8480d1366010ccbb7fbf0ed85215aa-f6fe91d3-85091868',
+  }
+});
+
+async function sendContactEmail({ name, email, message }) {
+  const mailOptions = {
+    from: 'postmaster@sandbox7dfbaaabbf7744c3ba77546be5250027.mailgun.org',
+    to: 'arianndrecaj5@gmail.com',
+    subject: 'New Contact Form Submission',
+    text: `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log('Error sending email:', error);
+    } else {
+      console.log('Email sent:', info.response);
+    }
+  });
+}
