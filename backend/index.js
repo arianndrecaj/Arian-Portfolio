@@ -3,10 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-<<<<<<< HEAD
-=======
-
->>>>>>> f7e7e5d2e1885ea24a59ab3ce77fd49095fbf30e
 const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
@@ -24,26 +20,15 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-<<<<<<< HEAD
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((error) => console.log('MongoDB connection error:', error));
-
-=======
 .catch((error) => {
   console.log('MongoDB connection error:',error);
 });
->>>>>>> f7e7e5d2e1885ea24a59ab3ce77fd49095fbf30e
 app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
 
-<<<<<<< HEAD
-// Contact Route
-app.use('/contact', contactRoutes);
-=======
 app.use(contactRoutes);
 
->>>>>>> f7e7e5d2e1885ea24a59ab3ce77fd49095fbf30e
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
