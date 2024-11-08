@@ -7,19 +7,19 @@ function About() {
     <div className="container my-5 p-4 rounded shadow-lg bg-white">
       <div className="row">
         {/* Profile Image Column */}
-        <div className="col-md-4 text-center">
+        <div className="col-12 col-md-4 text-center mb-4 mb-md-0">
           <img
             src={`${process.env.PUBLIC_URL}/arian.jpeg`}
             alt="Profile"
             className="img-fluid rounded-circle profile-img mb-4 border border-3 border-secondary"
-            style={{ width: "200px", height: "200px", objectFit: "cover" }}
+            style={{ maxWidth: "200px", height: "auto", objectFit: "cover" }}
           />
           {/* Skills Section */}
-          <div className="mt-1 col-md-8">
+          <div className="mt-1">
             <h2 className="text-primary">Skills</h2>
             <p className="text-secondary">JavaScript, React, Node.js, Laravel, Express, MongoDB, and more.</p>
           </div>
-          <div className="mt-4 col-md-8">
+          <div className="mt-4">
             <p><strong>LinkedIn:</strong></p>
             <a
               href="https://www.linkedin.com/in/arian-ndrecaj-163371235/?trk=opento_sprofile_details"
@@ -33,7 +33,7 @@ function About() {
         </div>
 
         {/* About Me and Experience Section */}
-        <div className="col-md-8">
+        <div className="col-12 col-md-8">
           {/* About Me Section */}
           <div className="mb-4">
             <h1 className="mb-3 text-primary">About Me</h1>
@@ -64,8 +64,6 @@ function About() {
               </p>
             </div>
           </div>
-
-          
         </div>
       </div>
     </div>
