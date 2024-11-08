@@ -37,10 +37,22 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-y: hidden; /* Prevent vertical scrollbar */
+}
+
+
 /* Ensure the body and html take the full height */
 html, body {
   height: 100%;
   margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Wrapper for main content and footer */
@@ -73,6 +85,8 @@ html, body {
   transform: scale(1.02);
   transition: transform 0.2s;
 }
+
+
 
 
 

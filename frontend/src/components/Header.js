@@ -5,42 +5,44 @@ function Header() {
     const location = useLocation(); // Get the current location (route)
 
     return (
-        <div className="card text-center bg-black text-white">
-            <div className="card-header">
-                <ul className="nav nav-pills card-header-pills justify-content-center">
-                    <li className="nav-item">
-                        <Link 
-                            to="/" 
-                            className={`fst-italic nav-link ${location.pathname === '/' ? 'active' : ''}`}
-                        >
-                            Home
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link 
-                            to="/about" 
-                            className={`fst-italic nav-link ${location.pathname === '/about' ? 'active' : ''}`}
-                        >
-                            About
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link 
-                            to="/projects" 
-                            className={`fst-italic nav-link ${location.pathname === '/projects' ? 'active' : ''}`}
-                        >
-                            Projects
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link 
-                            to="/contact" 
-                            className={`fst-italic nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
-                        >
-                            Contact
-                        </Link>
-                    </li>
-                </ul>
+        <div className="bg-dark text-white shadow-sm">
+            <div className="container py-3">
+                <div className="d-flex justify-content-center">
+                    <ul className="nav nav-pills">
+                        <li className="nav-item">
+                            <Link 
+                                to="/" 
+                                className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+                            >
+                                Home
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link 
+                                to="/about" 
+                                className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+                            >
+                                About
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link 
+                                to="/projects" 
+                                className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`}
+                            >
+                                Projects
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link 
+                                to="/contact" 
+                                className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+                            >
+                                Contact
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     );
