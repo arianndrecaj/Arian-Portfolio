@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+/* Ensure the body and html take the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Wrapper for main content and footer */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should expand to fill space above the footer */
+.main-content {
+  flex: 1;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 120px;
+  /* No need for margin-top here since flexbox handles the positioning */
+}
+
+/* App.css */
+
+.profile-img {
+  width: 300px; /* Adjust width as needed */
+  max-width: 100%; /* Ensures it stays responsive */
+  margin-right: 120px;
+}
+
+
