@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css"; // Custom styling can be added here
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -54,7 +55,7 @@ function Contact() {
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-lg-6">
-          <h2 className="text-center mb-4">Contact Arian</h2>
+          <h2 className="text-center mb-4 text-primary font-weight-bold">Contact Arian</h2>
 
           {feedbackMessage && (
             <div className={`alert alert-${feedbackType} text-center`} role="alert">
@@ -62,53 +63,62 @@ function Contact() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="p-4 border rounded shadow-sm bg-light">
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="message" className="form-label">
-                Message
-              </label>
-              <textarea
-                className="form-control"
-                id="message"
-                name="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary w-100" disabled={isSubmitting}>
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+          <div className="card shadow-lg rounded-lg border-0 p-4">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="name" className="form-label font-weight-semibold">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control shadow-sm"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your full name"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label font-weight-semibold">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="form-control shadow-sm"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your email address"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="message" className="form-label font-weight-semibold">
+                  Message
+                </label>
+                <textarea
+                  className="form-control shadow-sm"
+                  id="message"
+                  name="message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your message"
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary w-100 py-2 shadow-lg border-0"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

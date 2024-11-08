@@ -1,40 +1,62 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
 
 const projects = [
   {
-    title: 'Pelikani',
-    description: 'Pelikani eshte krijuar per individet dhe agjencite e pasurive te paluajtshme,duke ofruar nje hapesire te integruar per menaxhimin e listimeve de prezantimin e sherbimeve tuaja.Made with Laravel/React',
+    title: "Pelikani",
+    description:
+      "Pelikani is created for individuals and real estate agencies, offering an integrated space to manage listings and present your services. Made with Laravel/React.",
     image: `${process.env.PUBLIC_URL}/pelikani.jpeg`,
-    link: 'https://pelikani.net/'
+    link: "https://pelikani.net/",
   },
   {
-    title: 'Selita Finesse',
-    description: 'Një faqe blerjeje e ndërtuar me Next.js ofron një përvojë të shpejtë dhe të rrjedhshme për përdoruesit, me katalog të dinamik të produkteve, autentikim të përdoruesit, shportë dhe proces blerjeje. Next.js siguron performancë të lartë dhe optimizim për motorët e kërkimit (SEO), duke e bërë faqen të përshtatshme për rritje dhe shkallëzim. Përdoruesit mund të shfletojnë produkte, të shtojnë artikuj në shportë dhe të kryejnë blerjen në mënyrë të sigurt.',
+    title: "Selita Finesse",
+    description:
+      "A shopping site built with Next.js, providing a fast and smooth experience for users, with dynamic product catalog, user authentication, cart, and checkout. Optimized for SEO, ensuring high performance and scalability.",
     image: `${process.env.PUBLIC_URL}/selita.jpg`,
-    link: 'https://mariooconstruction.com/'
+    link: "https://mariooconstruction.com/",
   },
   {
-    title: 'Mario Construction',
-    description: 'Mario Construction është një faqe prezantuese (landing page) për një kompani ndërtimi, e krijuar për të ofruar një përvojë të pastër dhe profesionale për vizitorët. Ndërtuar me TypeScript, CSS, dhe JavaScript, faqja është e optimizuar për performancë dhe dizajn të përgjegjshëm, duke u përshtatur për të gjitha pajisjet. Me një pamje moderne dhe seksione të dedikuara për projektet e realizuara, shërbimet, dhe informacionin e kontaktit, Mario Construction synon të tërheqë klientët dhe të prezantojë cilësinë e punës së kompanisë në ndërtim.',
+    title: "Mario Construction",
+    description:
+      "Mario Construction is a landing page for a construction company, built to provide a clean and professional experience for visitors. Optimized for performance and responsive design, showcasing the company’s work and services.",
     image: `${process.env.PUBLIC_URL}/mario.png`,
-    link: 'https://selitafinesse.com/'
+    link: "https://selitafinesse.com/",
   },
 ];
 
 function Projects() {
   return (
     <div className="container my-5">
-      <h1 className="text-center mb-4">My Projects</h1>
+      <h1 className="text-center mb-4 text-primary">
+        <i className="fas fa-laptop-code mr-2"></i> My Projects
+      </h1>
+      <p className="text-center text-secondary">
+        Check out some of the amazing projects I've worked on
+      </p>
+
       <div className="row">
         {projects.map((project, index) => (
           <div className="col-md-4 mb-4" key={index}>
-            <div className="card h-100" onClick={() => window.open(project.link, '_blank')} style={{ cursor: 'pointer' }}>
-              <img src={project.image} className="card-img-top" alt={project.title} />
+            <div
+              className="card h-100 shadow-lg border-0 rounded-lg"
+              onClick={() => window.open(project.link, "_blank")}
+              style={{ cursor: "pointer" }}
+            >
+              <img
+                src={project.image}
+                className="card-img-top rounded-top"
+                alt={project.title}
+              />
               <div className="card-body">
-                <h5 className="card-title">{project.title}</h5>
-                <p className="card-text">{project.description}</p>
+                <h5 className="card-title text-primary">{project.title}</h5>
+                <p className="card-text text-muted">{project.description}</p>
+              </div>
+              <div className="card-footer text-center">
+                <button className="btn btn-outline-primary w-100">
+                  View Project
+                </button>
               </div>
             </div>
           </div>
