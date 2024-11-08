@@ -25,7 +25,7 @@ router.get("/contact-messages/:id", async (req, res) => {
 });
 
 // Post a new contact message
-rotuer.post("/contact", async (req, res) => {
+router.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   const mailOptions = {
