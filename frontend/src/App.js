@@ -6,22 +6,21 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
+import './App.css'; // Make sure you import the CSS file
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <Header />
       <main>
         <Routes>
-          {" "}
-          {/* This is where you define your routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>
       </main>
-          <Footer />
+      <Footer />
     </div>
   );
 }

@@ -28,13 +28,9 @@ const projects = [
 
 function Projects() {
   return (
-    <div className="container my-5">
+    <div className="container my-0">
       <h1 className="text-center mb-4 text-primary">
-        <i className="fas fa-laptop-code mr-2"></i> My Projects
       </h1>
-      <p className="text-center text-secondary">
-        Check out some of the amazing projects I've worked on
-      </p>
 
       <div className="row">
         {projects.map((project, index) => (
