@@ -50,11 +50,6 @@ html, body {
   min-height: 100vh;
 }
 
-/* Main content should expand to fill space above the footer */
-.main-content {
-  flex: 1;
-}
-
 /* Footer styling */
 .footer {
   background-color: #f8f9fa;
@@ -62,7 +57,7 @@ html, body {
   padding: 1rem;
   font-size: 0.9rem;
   color: #6c757d;
-  margin-top: 120px;
+  margin-top: 70px;
   /* No need for margin-top here since flexbox handles the positioning */
 }
 
@@ -73,5 +68,12 @@ html, body {
   max-width: 100%; /* Ensures it stays responsive */
   margin-right: 120px;
 }
+
+.card:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s;
+}
+
+
 
 
