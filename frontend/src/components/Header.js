@@ -5,9 +5,9 @@ function Header() {
     const location = useLocation(); // Get the current location (route)
 
     return (
-        <div className="header bg-dark text-white shadow-sm">
-            <div className="container py-3">
-                <div className="d-flex justify-content-center">
+        <div className="header bg-white text-dark shadow-sm border border-secondary rounded">
+  <div className="container py-3">
+    <div className="d-flex justify-content-center">
                     <ul className="nav nav-pills">
                         <li className="nav-item">
                             <Link 
