@@ -1,18 +1,40 @@
 import React, { useState } from "react";
+import { Bar } from "react-chartjs-2";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "chart.js/auto";
 
 function About({ isDarkMode }) {
   const [showModal, setShowModal] = useState(false);
+  const [showDiagram, setShowDiagram] = useState(false); // Controls the middle section
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
+  // Data for the chart (example)
+  const chartData = {
+    labels: ["Laravel", "React", "JavaScript", "PHP", "Next.js", "Node.js"],
+    datasets: [
+      {
+        label: "Proficiency (%)",
+        data: [90, 75, 75, 80, 65, 73], // Example proficiency levels
+        backgroundColor: "rgba(54, 162, 235, 0.6)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+  };
 
   return (
     <section id="about" className="container my-5">
       <div className="row">
         {/* About Me Section */}
-        <div className="col-md-4 mb-4">
+        <div className="col-md-6 mb-4">
           <div className={`p-4 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
             <h3 className="text-primary"><i className="fa-solid fa-user"></i> About Me</h3>
             <p className="text-secondary">
@@ -24,8 +46,8 @@ function About({ isDarkMode }) {
           </div>
         </div>
 
-        {/* Source Code Section */}
-        <div className="col-md-4 mb-4">
+        {/* GitHub Section */}
+        <div className="col-md-6 mb-4">
           <div className={`p-4 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
             <h3 className="text-primary"><i className="fab fa-github mr-2"></i> GitHub</h3>
             <p className="text-secondary">
@@ -41,47 +63,29 @@ function About({ isDarkMode }) {
             </a>
           </div>
         </div>
+      </div>
 
-        {/* Contact Section */}
-        <div className="col-md-4 mb-4">
+      {/* Technical Skills Section */}
+      <div className="row">
+        <div className="col-12 mb-4">
           <div className={`p-4 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
-            <h3 className="text-primary"><i className="fa-solid fa-address-book"></i> Contact</h3>
-            <p className="text-secondary">
-              I'd love to hear from you! Feel free to reach out for collaborations or questions.
-            </p>
-            <div className="d-flex flex-column align-items-center">
-              {/* Email Button */}
-              <a
-                href="mailto:ndrecajarian3@gmail.com"
-                className="btn btn-primary w-100 mb-3 text-white d-flex align-items-center justify-content-center"
-                style={{
-                  fontSize: "1.1rem",
-                  padding: "12px 20px",
-                  borderRadius: "5px",
-                  textDecoration: "none",
-                }}
-              >
-                <i className="bi bi-envelope-fill me-2"></i> 
-                Send me an Email
-              </a>
+            <h3 className="text-primary"><i className="fas fa-layer-group mr-2"></i> Technical Skills</h3>
+            <p className="text-secondary mb-3">Explore my expertise in web development technologies and frameworks.</p>
 
-              {/* LinkedIn Button */}
-              <a
-                href="https://www.linkedin.com/in/arian-ndrecaj-163371235/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary w-100 mb-3 text-white d-flex align-items-center justify-content-center"
-                style={{
-                  fontSize: "1.1rem",
-                  padding: "12px 20px",
-                  borderRadius: "5px",
-                  textDecoration: "none",
-                }}
-              >
-                <i className="bi bi-linkedin me-2"></i>
-                Connect with me on LinkedIn
-              </a>
-            </div>
+            <button
+              onClick={() => setShowDiagram(!showDiagram)}
+              className="btn btn-primary"
+            >
+              {showDiagram ? "Hide Proficiency" : "View Proficiency"}
+            </button>
+
+            {/* Show or hide the proficiency diagram based on the state */}
+            {showDiagram && (
+              <div className="mt-1" style={{ height: '250px' }}>
+                <h5 className="text-center">Tech Stack Proficiency</h5>
+                <Bar data={chartData} options={chartOptions} />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -93,9 +97,6 @@ function About({ isDarkMode }) {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title text-primary">About Me</h5>
-                <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
               <div className="modal-body">
                 <p className="text-secondary">
