@@ -1,72 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../App.css"; // Assuming your CSS file is here for additional styling
 
 function About() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
   return (
-    <div className="container my-5 p-4 rounded shadow-lg bg-white">
-      <div className="row">
-        {/* Profile Image Column */}
-        <div className="col-12 col-md-4 text-center mb-4 mb-md-0">
-          <img
-            src={`${process.env.PUBLIC_URL}/arian.jpeg`}
-            alt="Profile"
-            className="img-fluid rounded-circle profile-img mb-4 border border-3 border-secondary"
-            style={{ maxWidth: "200px", height: "auto", objectFit: "cover" }}
-          />
-          {/* Skills Section */}
-          <div className="mt-1">
-            <h2 className="text-primary">Skills</h2>
-            <p className="text-secondary">JavaScript, React, Node.js, Laravel, Express, MongoDB, and more.</p>
-          </div>
-          <div className="mt-4">
-            <p><strong>LinkedIn:</strong></p>
-            <a
-              href="https://www.linkedin.com/in/arian-ndrecaj-163371235/?trk=opento_sprofile_details"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline-primary"
-            >
-              Visit my LinkedIn Profile
-            </a>
-          </div>
-        </div>
+    <section id="about" className="container my-5 p-4 rounded shadow-lg bg-white">
+      {/* Brief About section */}
+      <h1 className="mb-3 text-primary">About Me</h1>
+      <p className="lead text-secondary">
+        Hello! I'm Arian, a passionate web developer with a love for creating intuitive and efficient web applications...
+      </p>
+      <button className="btn btn-outline-primary" onClick={handleOpenModal}>
+        Read More
+      </button>
 
-        {/* About Me and Experience Section */}
-        <div className="col-12 col-md-8">
-          {/* About Me Section */}
-          <div className="mb-4">
-            <h1 className="mb-3 text-primary">About Me</h1>
-            <p className="lead text-secondary">
-              Hello! I'm Arian, a passionate web developer with experience in modern web technologies.
-            </p>
-            <p>
-              I specialize in creating responsive, user-friendly applications and enjoy working with both front-end and back-end technologies. My goal is to build solutions that make a positive impact.
-            </p>
-            <p>
-              In my free time, I love exploring new technologies, contributing to open-source projects, and writing about my coding journey.
-            </p>
-          </div>
-
-          {/* Experience Section */}
-          <div>
-            <h1 className="mb-3 text-primary">Experience</h1>
-            <div className="mb-3 p-3 border-start border-5 border-primary">
-              <p className="lead fw-bold">Virtus Lending (Aug 2023 - Apr 2024 · 9 mos)</p>
-              <p>
-                At Virtus Lending, I served as an intern software developer, where I gained hands-on experience in PHP, Laravel, Zend, JavaScript, Linux OS, OOP, and Nginx under the mentorship of seasoned professionals.
-              </p>
-            </div>
-            <div className="mb-3 p-3 border-start border-5 border-primary">
-              <p className="lead fw-bold">Freelance Web Developer (May 2024 - Present)</p>
-              <p>
-                Developed custom web applications using React, Node.js, and Laravel. Focused on responsive design, user experience, and backend integration.
-              </p>
+      {/* Modal for expanded content */}
+      {showModal && (
+        <div className="modal show d-block" tabIndex="-1" role="dialog" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+          <div className="modal-dialog modal-lg" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title text-primary">About Me</h5>
+                <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p className="text-secondary">
+                  Hello! I'm Arian, a passionate web developer with a love for creating intuitive and efficient web applications.
+                  I specialize in modern frameworks like Laravel,React,Node.js. Over the years, I’ve honed my skills in front-end
+                  and back-end development, always focusing on clean, scalable code and optimal user experience.
+                </p>
+                <p className="text-secondary">
+                  My projects range from e-commerce platforms to real estate solutions, each designed to meet specific client needs. 
+                  I am committed to continuous learning, always exploring the latest in web technology to stay at the forefront of industry trends.
+                </p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </section>
   );
 }
 

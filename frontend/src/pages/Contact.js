@@ -4,6 +4,7 @@ import "../App.css"; // Optional, for additional styling
 
 function Contact() {
   return (
+    <section id="contact" className="py-5">
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-lg-6 col-md-8">
@@ -52,6 +53,7 @@ function Contact() {
         </div>
       </div>
     </div>
+    </section>
   );
 }
 

@@ -1,52 +1,21 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
 
 function Header() {
-  const location = useLocation();
-
   return (
     <div className="header bg-white text-dark shadow-sm border border-secondary rounded">
       <div className="container py-3 d-flex justify-content-center align-items-center">
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <Link
-              to="/"
-              className={`nav-link ${
-                location.pathname === "/" ? "active" : ""
-              }`}
-            >
-              Home
-            </Link>
+            <a href="#home" className="nav-link">Home</a>
           </li>
           <li className="nav-item">
-            <Link
-              to="/about"
-              className={`nav-link ${
-                location.pathname === "/about" ? "active" : ""
-              }`}
-            >
-              About
-            </Link>
+            <a href="#about" className="nav-link">About</a>
           </li>
           <li className="nav-item">
-            <Link
-              to="/projects"
-              className={`nav-link ${
-                location.pathname === "/projects" ? "active" : ""
-              }`}
-            >
-              Projects
-            </Link>
+            <a href="#projects" className="nav-link">Projects</a>
           </li>
           <li className="nav-item">
-            <Link
-              to="/contact"
-              className={`nav-link ${
-                location.pathname === "/contact" ? "active" : ""
-              }`}
-            >
-              Contact
-            </Link>
+            <a href="#contact" className="nav-link">Contact</a>
           </li>
         </ul>
       </div>
