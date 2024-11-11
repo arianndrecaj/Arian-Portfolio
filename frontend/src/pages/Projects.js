@@ -26,19 +26,27 @@ const projects = [
   },
 ];
 
-function Projects() {
+function Projects({ isDarkMode }) {
+  const cardBackgroundColor = isDarkMode ? '#444' : '#fff'; // Dark mode background vs light mode background
+  const textColor = isDarkMode ? '#fff' : '#333';           // Dark mode text vs light mode text
+  const cardBorderColor = isDarkMode ? '#555' : '#ddd';      // Dark mode border vs light mode border
+
   return (
-    <section id="projects" className="py-5">
+    <section id="projects" className="py-5" style={{ backgroundColor: isDarkMode ? '#333' : '#f9f9f9' }}>
       <div className="container">
-        <h2 className="text-center mb-4 text-primary">My Projects</h2>
+        <h2 className="text-center mb-4 text-primary" style={{ color: textColor }}>My Projects</h2>
         
         <div className="row">
           {projects.map((project, index) => (
             <div className="col-md-4 mb-4" key={index}>
               <div
-                className="card h-100 shadow-lg border-0 rounded-lg"
+                className="card h-100 shadow-lg  border-0 rounded-lg"
                 onClick={() => window.open(project.link, "_blank")}
-                style={{ cursor: "pointer" }}
+                style={{
+                  cursor: "pointer",
+                  backgroundColor: cardBackgroundColor,
+                  border: `1px solid ${cardBorderColor}`,
+                }}
               >
                 <img
                   src={project.image}
@@ -46,8 +54,8 @@ function Projects() {
                   alt={project.title}
                 />
                 <div className="card-body">
-                  <h5 className="card-title text-primary">{project.title}</h5>
-                  <p className="card-text text-muted">{project.description}</p>
+                  <h5 className="card-title" style={{ color: textColor }}>{project.title}</h5>
+                  <p className="card-text" style={{ color: textColor }}>{project.description}</p>
                 </div>
               </div>
             </div>
