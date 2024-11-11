@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ContactMessage = require("../models/ContactMessage");
 
+
 router.get("/contact-messages", async (req, res) => {
   try {
     const messages = await ContactMessage.find();
