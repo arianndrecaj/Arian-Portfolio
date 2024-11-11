@@ -32,7 +32,7 @@ function About({ isDarkMode }) {
               You can find the source code for my projects on GitHub. I specialize in modern web technologies and frameworks.
             </p>
             <a
-              href="https://github.com/your-github-profile"
+              href="https://github.com/arianndrecaj"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline-primary"
