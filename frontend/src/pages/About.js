@@ -35,12 +35,22 @@ function About({ isDarkMode }) {
       <div className="row">
         {/* About Me Section */}
         <div className="col-md-6 mb-4">
-          <div className={`p-4 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
-            <h3 className="text-primary"><i className="fa-solid fa-user"></i> About Me</h3>
+          <div
+            className={`p-4 rounded shadow-lg ${
+              isDarkMode ? "bg-dark text-light" : "bg-white text-dark"
+            } h-100`}
+          >
+            <h3 className="text-primary">
+              <i className="fa-solid fa-user"></i> About Me
+            </h3>
             <p className="text-secondary">
-              Hello! I'm Arian, a passionate web developer with a love for creating intuitive and efficient web applications...
+              Hello! I'm Arian, a passionate web developer with a love for
+              creating intuitive and efficient web applications...
             </p>
-            <button className="btn btn-outline-primary" onClick={handleOpenModal}>
+            <button
+              className="btn btn-outline-primary"
+              onClick={handleOpenModal}
+            >
               Read More
             </button>
           </div>
@@ -48,10 +58,17 @@ function About({ isDarkMode }) {
 
         {/* GitHub Section */}
         <div className="col-md-6 mb-4">
-          <div className={`p-4 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
-            <h3 className="text-primary"><i className="fab fa-github mr-2"></i> GitHub</h3>
+          <div
+            className={`p-4 rounded shadow-lg ${
+              isDarkMode ? "bg-dark text-light" : "bg-white text-dark"
+            } h-100`}
+          >
+            <h3 className="text-primary">
+              <i className="fab fa-github mr-2"></i> GitHub
+            </h3>
             <p className="text-secondary">
-              You can find the source code for my projects on GitHub. I specialize in modern web technologies and frameworks.
+              You can find the source code for my projects on GitHub. I
+              specialize in modern web technologies and frameworks.
             </p>
             <a
               href="https://github.com/arianndrecaj"
@@ -68,9 +85,18 @@ function About({ isDarkMode }) {
       {/* Technical Skills Section */}
       <div className="row">
         <div className="col-12 mb-4">
-          <div className={`p-5 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
-            <h3 className="text-primary"><i className="fas fa-layer-group mr-2"></i> Technical Skills</h3>
-            <p className="text-secondary mb-3">Explore my expertise in web development technologies and frameworks.</p>
+          <div
+            className={`p-5 rounded shadow-lg ${
+              isDarkMode ? "bg-dark text-light" : "bg-white text-dark"
+            } h-100`}
+          >
+            <h3 className="text-primary">
+              <i className="fas fa-layer-group mr-2"></i> Technical Skills
+            </h3>
+            <p className="text-secondary mb-3">
+              Explore my expertise in web development technologies and
+              frameworks.
+            </p>
 
             <button
               onClick={() => setShowDiagram(!showDiagram)}
@@ -81,7 +107,7 @@ function About({ isDarkMode }) {
 
             {/* Show or hide the proficiency diagram based on the state */}
             {showDiagram && (
-              <div className="mt-1" style={{ height: '250px' }}>
+              <div className="mt-1" style={{ height: "250px" }}>
                 <h5 className="text-center">Tech Stack Proficiency</h5>
                 <Bar data={chartData} options={chartOptions} />
               </div>
@@ -92,25 +118,60 @@ function About({ isDarkMode }) {
 
       {/* Modal for expanded content */}
       {showModal && (
-        <div className="modal show d-block" tabIndex="-1" role="dialog" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+        <div
+          className="modal show d-block"
+          tabIndex="-1"
+          role="dialog"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+        >
           <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content">
+            <div
+              className="modal-content"
+              style={{
+                backgroundColor: isDarkMode ? "#333" : "#fff", // Dark mode background
+                color: isDarkMode ? "#fff" : "#333", // Dark mode text color
+              }}
+            >
               <div className="modal-header">
-                <h5 className="modal-title text-primary">About Me</h5>
+                <h5
+                  className="modal-title"
+                  style={{ color: isDarkMode ? "#fff" : "#000" }}
+                >
+                  About Me
+                </h5>
               </div>
               <div className="modal-body">
-                <p className="text-secondary">
-                  Hello! I'm Arian, a passionate web developer with a love for creating intuitive and efficient web applications.
-                  I specialize in modern frameworks like Laravel, React, and Node.js. Over the years, I’ve honed my skills in front-end
-                  and back-end development, always focusing on clean, scalable code and optimal user experience.
+                <p
+                  className="text-secondary"
+                  style={{ color: isDarkMode ? "#ccc" : "#333" }} // Text color for dark mode
+                >
+                  Hello! I'm Arian, a passionate web developer with a love for
+                  creating intuitive and efficient web applications. I
+                  specialize in modern frameworks like Laravel, React, and
+                  Node.js. Over the years, I’ve honed my skills in front-end and
+                  back-end development, always focusing on clean, scalable code
+                  and optimal user experience.
                 </p>
-                <p className="text-secondary">
-                  My projects range from e-commerce platforms to real estate solutions, each designed to meet specific client needs. 
-                  I am committed to continuous learning, always exploring the latest in web technology to stay at the forefront of industry trends.
+                <p
+                  className="text-secondary"
+                  style={{ color: isDarkMode ? "#ccc" : "#333" }} // Text color for dark mode
+                >
+                  My projects range from e-commerce platforms to real estate
+                  solutions, each designed to meet specific client needs. I am
+                  committed to continuous learning, always exploring the latest
+                  in web technology to stay at the forefront of industry trends.
                 </p>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleCloseModal}
+                  style={{
+                    backgroundColor: isDarkMode ? "#555" : "#ddd", // Button background for dark mode
+                    color: isDarkMode ? "#fff" : "#000", // Button text color for dark mode
+                  }}
+                >
                   Close
                 </button>
               </div>

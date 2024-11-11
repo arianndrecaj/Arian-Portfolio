@@ -9,7 +9,7 @@ const projects = [
       "Pelikani is created for individuals and real estate agencies, offering an integrated space to manage listings and present your services. Made with Laravel/React.",
     image: `${process.env.PUBLIC_URL}/pelikani.jpeg`,
     link: "https://pelikani.net/", // Live website link
-    github: "https://github.com/arianndrecaj/pelikani", // GitHub repo link
+    github: "https://github.com/arianndrecaj/not-available", // GitHub repo link
   },
   {
     title: "Selita Finesse",
