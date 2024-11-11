@@ -68,7 +68,7 @@ function About({ isDarkMode }) {
       {/* Technical Skills Section */}
       <div className="row">
         <div className="col-12 mb-4">
-          <div className={`p-4 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
+          <div className={`p-5 rounded shadow-lg ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} h-100`}>
             <h3 className="text-primary"><i className="fas fa-layer-group mr-2"></i> Technical Skills</h3>
             <p className="text-secondary mb-3">Explore my expertise in web development technologies and frameworks.</p>
 

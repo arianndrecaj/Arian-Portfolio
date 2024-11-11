@@ -42,7 +42,7 @@ function Projects({ isDarkMode }) {
     >
       <div className="container">
         <h2
-          className="text-center mb-4 text-primary"
+          className="text-center mb-4 text-primary fa-diagram-project fa-solid"
           style={{ color: textColor }}
         >
           My Projects
@@ -114,55 +114,66 @@ function Projects({ isDarkMode }) {
             </div>
           ))}
         </div>
-      </div>
-      <div className="row d-flex justify-content-center align-items-center min-vh-50">
-        <div className="col-md-4 mb-4">
-          <div
-            className={`p-4 rounded shadow-lg ${
-              isDarkMode ? "bg-dark text-light" : "bg-white text-dark"
-            } h-100`}
-          >
-            <h3 className="text-primary">
-              <i className="fa-solid fa-address-book"></i> Contact
-            </h3>
-            <p className="text-secondary">
-              I'd love to hear from you! Feel free to reach out for
-              collaborations or questions.
-            </p>
-            <div className="d-flex flex-column align-items-center">
-              {/* Email Button */}
-              <a
-                href="mailto:ndrecajarian3@gmail.com"
-                className="btn btn-primary w-100 mb-3 text-white d-flex align-items-center justify-content-center"
-                style={{
-                  fontSize: "1.1rem",
-                  padding: "12px 20px",
-                  borderRadius: "5px",
-                  textDecoration: "none",
-                }}
-              >
-                <i className="bi bi-envelope-fill me-2"></i>
-                Send me an Email
-              </a>
 
-              {/* LinkedIn Button */}
-              <a
-                href="https://www.linkedin.com/in/arian-ndrecaj-163371235/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary w-100 mb-3 text-white d-flex align-items-center justify-content-center"
-                style={{
-                  fontSize: "1.1rem",
-                  padding: "12px 20px",
-                  borderRadius: "5px",
-                  textDecoration: "none",
-                }}
-              >
-                <i className="bi bi-linkedin me-2"></i>
-                Connect with me on LinkedIn
-              </a>
+        {/* "Connect with me" and "Contact" Section on the Same Row */}
+        <h2
+          className="text-center mb-4 text-primary fa-solid fa-paperclip"
+          style={{ color: textColor }}
+        >
+          Connect with me
+        </h2>
+
+        <div className="row align-items-center">
+          <div className="col-md-6 mb-4">
+            <div
+              className={`p-4 rounded shadow-lg ${
+                isDarkMode ? "bg-dark text-light" : "bg-white text-dark"
+              } h-100`}
+            >
+              <h3 className="text-primary">
+                <i className="fa-solid fa-address-book"></i> Contact
+              </h3>
+              <p className="text-secondary">
+                I'd love to hear from you! Feel free to reach out for
+                collaborations or questions.
+              </p>
+              <div className="d-flex flex-column align-items-center">
+                {/* Email Button */}
+                <a
+                  href="mailto:ndrecajarian3@gmail.com"
+                  className="btn btn-primary w-100 mb-3 text-white d-flex align-items-center justify-content-center"
+                  style={{
+                    fontSize: "1.1rem",
+                    padding: "12px 20px",
+                    borderRadius: "5px",
+                    textDecoration: "none",
+                  }}
+                >
+                  <i className="bi bi-envelope-fill me-2"></i>
+                  Send me an Email
+                </a>
+
+                {/* LinkedIn Button */}
+                <a
+                  href="https://www.linkedin.com/in/arian-ndrecaj-163371235/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary w-100 mb-3 text-white d-flex align-items-center justify-content-center"
+                  style={{
+                    fontSize: "1.1rem",
+                    padding: "12px 20px",
+                    borderRadius: "5px",
+                    textDecoration: "none",
+                  }}
+                >
+                  <i className="bi bi-linkedin me-2"></i>
+                  Connect with me on LinkedIn
+                </a>
+              </div>
             </div>
           </div>
+
+          {/* Optional: Add any other column or content here for additional information */}
         </div>
       </div>
     </section>
