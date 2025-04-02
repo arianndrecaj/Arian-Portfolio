@@ -12,6 +12,14 @@ const projects = [
     github: "https://github.com/arianndrecaj/not-available", // GitHub repo link
   },
   {
+    title: "ClinicPro",
+    description:
+      "ClinicPro, a powerful healthcare management platform designed to streamline appointment scheduling, clinic discovery, and medical record management—all in one seamless system.",
+    image: `${process.env.PUBLIC_URL}/clinicpro.png`,
+    link: "https://pelikani.net/", // Live website link
+    github: "https://github.com/arianndrecaj/Arian-Portfolio", // GitHub repo link
+  },
+  {
     title: "Selita Finesse",
     description:
       "A shopping site built with Next.js, providing a fast and smooth experience for users, with dynamic product catalog, user authentication, cart, and checkout. Optimized for SEO, ensuring high performance and scalability.",
